@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babushka</title>
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      article {
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bistro Babushka</h1>
+    <nav>
+      <button data-menu="alle" class="valgt">Hele menuen</button>
+      <button data-menu="forretter">Forretter</button>
+      <button data-menu="hovedretter">Hovedretter</button>
+      <button data-menu="sideorders">Sideorders</button>
+      <button data-menu="desserter">Desserter</button>
+      <button data-menu="drikkevarer">Drikkevarer</button>
+    </nav>
+    <section>
+      <template>
+        <article>
+          <h2></h2>
+          <img src="" alt="" />
+        </article>
+      </template>
+    </section>
+    <script>
+      const container = document.querySelector("section");
+      const temp = document.querySelector("template");
+
+      const url = "https://babushka-dd8a.restdb.io/rest/menu";
+      const key = "600ec2fb1346a1524ff12de4";
+
+      let data = [];
+
+      const options = {
+        headers: {
+          "x-apikey": key,
+        },
+      };
+
+      const header = document.querySelector("header h1");
+
+      async function hentdata() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        vis(json);
+        console.log("her er json");
+      }
+
+      function vis(menu) {
+        menu.forEach((kategori) => {
+          const klon = temp.cloneNode(true).content;
+          klon.querySelector("h2").textContent = kategori.navn;
+          /*klon.querySelector("img").src = "faces/" + person.profilbilllede;*/
+          container.appendChild(klon);
+        });
+      }
+      hentdata();
+    </script>
+  </body>
+</html>
