@@ -5,17 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        background-color: #f2e7dc;
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      article {
+        padding: 5px;
+        margin: 5px;
+      }
+
+      img {
+        max-width: 100%;
+        border-radius: 153px 127px 138px 135px;
+        -webkit-border-radius: 153px 127px 138px 135px;
+        -moz-border-radius: 153px 127px 138px 135px;
+      }
+      button {
+        border-radius: 115px 75px 105px 96px;
+        -webkit-border-radius: 115px 75px 105px 96px;
+        -moz-border-radius: 115px 75px 105px 96px;
+        box-shadow: 0;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      h2 {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+      h3 {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      p {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+    </style>
   </head>
   <body>
     <main>
-      <button>Back</button>
-      <article>
-        <h2></h2>
-        <h3></h3>
-        <p></p>
-        <p></p>
-        <img src="" alt="" />
-      </article>
+      <button>Tilbage</button>
+      <section>
+        <article>
+          <h2></h2>
+          <h3></h3>
+          <p></p>
+          <!-- <p></p> -->
+          <img src="" alt="" />
+        </article>
+      </section>
     </main>
 
     <script>
@@ -44,9 +85,9 @@
       function vis() {
         document.querySelector("h2").textContent = menu.navn;
         document.querySelector("h3").textContent = menu.pris;
-        document.querySelector("p").textContent = menu.kortbeskrivelse;
-        document.querySelector("article:nth-child(2) p").textContent =
-          menu.langbeskrivelse;
+        document.querySelector("p").textContent = menu.langbeskrivelse;
+        /* document.querySelector("article:nth-child(2) p").textContent =
+          menu.langbeskrivelse; */
         document.querySelector("img").src = `medium/${menu.billednavn}-md.jpg`;
       }
 
