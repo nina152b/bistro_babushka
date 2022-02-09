@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Babushka</title>
+    <title>Bistro Babushka</title>
     <style>
       * {
-        background-color: #f2e7dc;
+        background-color: white;
       }
 
       section {
@@ -17,6 +17,7 @@
       article {
         padding: 5px;
         margin: 5px;
+        margin-top: 40px;
       }
 
       img {
@@ -30,41 +31,33 @@
         -webkit-border-radius: 115px 75px 105px 96px;
         -moz-border-radius: 115px 75px 105px 96px;
         box-shadow: 0;
+        border: none;
+        background-color: none;
+
       }
-      /*#modal {
-        display: none;
-        width: 100vw;
-        height: 100vh;
-        display: fixed;
-        background-color: #00000055;
+
+      nav {
+        position: fixed;
+        gap: 10px;
+        place-content: left;
+        cursor: pointer;
+         border: none;
+        background-color: none;
       }
-      #modal article {
-        max-width: 900px;
-        margin: auto;
-        background-color: white;
-      }*/
+
     </style>
   </head>
   <body>
-    <h1>Babushka</h1>
     <nav>
-      <button data-menu="alle" class="valgt">Hele menuen</button>
+      <button data-menu="alle" class="valgt">Menu</button>
       <button data-menu="forretter">Forretter</button>
       <button data-menu="hovedretter">Hovedretter</button>
       <button data-menu="sideorders">Sideorders</button>
       <button data-menu="desserter">Desserter</button>
       <button data-menu="drikkevarer">Drikkevarer</button>
     </nav>
-    <!--<aside id="modal">
-      <article>
-        <h2></h2>
-        <h3></h3>
-        <p></p>
-        <p></p>
-        <img src="" alt="" />
-      </article>
-    </aside>-->
 
+    <h1>Babushka</h1>
     <section>
       <template>
         <article>
@@ -82,7 +75,6 @@
       let menu;
       let filter = "alle";
       const filtrerKnap = document.querySelectorAll("button");
-      //const modal = document.querySelector("#modal");
 
       const options = {
         headers: {
